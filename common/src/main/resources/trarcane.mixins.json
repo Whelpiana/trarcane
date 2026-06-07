@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "org.adiris.trarcane.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "DivineDragonRaceMixin",
+    "tensura.TensuraMixin",
+    "DivineBirdRaceMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

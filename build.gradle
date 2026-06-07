@@ -1,0 +1,159 @@
+plugins {
+    id 'dev.architectury.loom' version '1.14-SNAPSHOT' apply false
+    id 'architectury-plugin' version '3.4-SNAPSHOT'
+    id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
+    id 'org.moddedmc.wiki.toolkit' version '0.4.1'
+}
+
+architectury {
+    minecraft = project.minecraft_version
+}
+
+allprojects {
+    group = rootProject.maven_group
+    version = rootProject.mod_version
+
+    repositories {
+        maven {
+            name = 'ParchmentMC'
+            url = 'https://maven.parchmentmc.org'
+        }
+        maven {
+            name = 'CurseMaven'
+            url = 'https://www.cursemaven.com'
+            content {
+                includeGroup("curse.maven")
+            }
+        }
+        maven {
+            name = 'GeckoLib'
+            url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+            content {
+                includeGroup("software.bernie.geckolib")
+            }
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'dev.architectury.loom'
+    apply plugin: 'architectury-plugin'
+    apply plugin: 'maven-publish'
+
+
+
+
+
+    base {
+        // Set up a suffixed format for the mod jar names, e.g. `example-fabric`.
+        archivesName = "$rootProject.archives_name-$project.name"
+    }
+
+    repositories {
+        // Add repositories to retrieve artifacts from in here.
+        // You should only use this when depending on other mods because
+        // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+        // See https://docs.gradle.org/current/userguide/declaring_repositories.html
+        // for more information about repositories.
+
+        maven {
+            name = 'GeckoLib'
+            url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+            content {
+                includeGroup("software.bernie.geckolib")
+            }
+        }
+
+        maven {
+            name = "ManasCore"
+            url = 'https://nexus.nighti.dev/repository/manasmods-public/'
+        }
+
+    }
+
+    dependencies {
+        minecraft "net.minecraft:minecraft:$rootProject.minecraft_version"
+        mappings loom.layered(){
+            officialMojangMappings()
+            parchment("org.parchmentmc.data:parchment-${rootProject.minecraft_version}:2024.11.17@zip")
+        }
+        if (project.name.contains("common")){
+            modImplementation "io.github.manasmods:manascore-attribute-common:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-command-common:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-config-common:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-inventory-common:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-keybind-common:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-network-common:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-race-common:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-skill-common:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-storage-common:$rootProject.manasCoreVersion"
+        }
+        if (project.name.contains("fabric")){
+            modImplementation "io.github.manasmods:manascore-attribute-fabric:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-command-fabric:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-config-fabric:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-inventory-fabric:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-keybind-fabric:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-network-fabric:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-race-fabric:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-skill-fabric:$rootProject.manasCoreVersion"
+            modImplementation "io.github.manasmods:manascore-storage-fabric:$rootProject.manasCoreVersion"
+        }
+        if (project.name.contains("neoforge")){
+            implementation "io.github.manasmods:manascore-attribute-neoforge:$rootProject.manasCoreVersion"
+            implementation "io.github.manasmods:manascore-command-neoforge:$rootProject.manasCoreVersion"
+            implementation "io.github.manasmods:manascore-config-neoforge:$rootProject.manasCoreVersion"
+            implementation "io.github.manasmods:manascore-inventory-neoforge:$rootProject.manasCoreVersion"
+            implementation "io.github.manasmods:manascore-keybind-neoforge:$rootProject.manasCoreVersion"
+            implementation "io.github.manasmods:manascore-network-neoforge:$rootProject.manasCoreVersion"
+            implementation "io.github.manasmods:manascore-race-neoforge:$rootProject.manasCoreVersion"
+            implementation "io.github.manasmods:manascore-skill-neoforge:$rootProject.manasCoreVersion"
+            implementation "io.github.manasmods:manascore-storage-neoforge:$rootProject.manasCoreVersion"
+        }
+    }
+
+    java {
+        // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+        // if it is present.
+        // If you remove this line, sources will not be generated.
+        withSourcesJar()
+
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        it.options.release = 21
+    }
+
+
+    // sinytra wiki
+    wiki {
+        docs {
+            trarcane {
+                // path to the folder containing metadata file (sinytra-wiki.json)
+                root = file("$rootDir/docs")
+            }
+        }
+    }
+
+    // Configure Maven publishing.
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifactId = base.archivesName.get()
+                from components.java
+            }
+        }
+
+        // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+        repositories {
+            // Add repositories to publish to here.
+            // Notice: This block does NOT have the same function as the block in the top level.
+            // The repositories here will be used for publishing your artifact, not for
+            // retrieving dependencies.
+        }
+    }
+}
+
+

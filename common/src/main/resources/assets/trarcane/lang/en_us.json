@@ -1,0 +1,65 @@
+{
+  "trarcane.skill.necro_lord": "Necro Lord",
+  "trarcane.skill.mode.necrolordwraithform": "Wraith Form",
+  "trarcane.skill.mode.necrolorddefault": "Create Necromancy Tome",
+  "trarcane.skill.mode.createphylactery": "Create Phylactery",
+
+  "trarcane.skill.milim_eye": "Milim Eye",
+  "trarcane.skill.mode.milimeyeanalyticalappraisal": "Analytical Appraisal",
+
+  "trarcane.skill.investigator": "Investigator",
+  "trarcane.skill.mode.investigatoranalyticalappraisal": "Analytical Appraisal",
+  "trarcane.skill.mode.investigatorpursuitoftruth": "Pursuit of Truth",
+  "trarcane.skill.mode.investigatorthoughtacceleration": "Thought Acceleration",
+
+  "trarcane.skill.disintegration": "Disintegration",
+  "trarcane.skill.mode.disintegration": "Disintegration",
+
+  "trarcane.skill.replenish": "Replenish",
+
+  "trarcane.skill.rest": "Rest",
+  "trarcane.skill.mode.default": "Use",
+
+  "trarcane.skill.mega_disintegration": "Mega Disintegration",
+  "trarcane.skill.mode.mega_disintegration": "Mega Disintegration",
+
+  "trarcane.skill.celestial_eye": "Celestial Eye",
+
+  "trarcane.skill.holy": "Holy",
+
+  "trarcane.race.infernal_tiefling": "Infernal Tiefling",
+  "trarcane.race.abyssal_tiefling": "Abyssal Tiefling",
+  "trarcane.race.chthonic_tiefling": "Chthonic Tiefling",
+  "trarcane.race.greater_tiefling": "Greater Tiefling",
+  "trarcane.race.divine_tiefling": "Divine Tiefling",
+  "trarcane.race.tiefling": "Tiefling",
+
+  "trarcane.race.genasi": "Genasi",
+  "trarcane.race.air_genasi": "Air Genasi",
+  "trarcane.race.earth_genasi": "Earth Genasi",
+  "trarcane.race.fire_genasi": "Fire Genasi",
+  "trarcane.race.water_genasi": "Water Genasi",
+  "trarcane.race.ancient_genasi": "Ancient Genasi",
+  "trarcane.race.divine_genasi": "Divine Genasi",
+
+  "trarcane.race.lesser_fairy": "Lesser Fairy",
+  "trarcane.race.fairy": "Fairy",
+  "trarcane.race.fairy_lord": "Fairy Lord",
+  "trarcane.race.fairy_queen": "Fairy Queen",
+
+  "trarcane.race.lesser_fairy.description": "The Fairy is a race consisting of spiritual beings born from another world from condensed natural mana.",
+  "trarcane.race.genasi.description": "Genasi are humanoid beings infused with the magic of the Elemental Planes.",
+  "trarcane.race.tiefling.description": "Tiefling are humanoids infused with the magic of the Lower Planes.",
+
+  "trarcane.skill.celestial_eye.description": "It that enhances the user's vision tremendously.",
+  "trarcane.skill.replenish.description": "Instantly restores your Magicules to maximum capacity.",
+  "trarcane.skill.rest.description": "Instantly restores your Aura to maximum capacity.",
+  "trarcane.skill.disintegration.description": "It is the strongest offensive spell among the holy magic. The attack causes spiritrons to fall apart and disperse, erasing everything, both physical and spiritual.",
+  "trarcane.skill.holy.description": "A divine blessing that shifts the user's soul alignment to Holy. This skill purges the wicked by infusing strikes with holy power and grants ultimate authority over Holy Magic.",
+  "trarcane.skill.investigator.description": "Allows the user to read the surface thoughts of others, and provides excellent information analysis and processing.",
+  "trarcane.skill.milim_eye.description": "It greatly enhances the user's eyesight and allows them to see through anything; nothing can hide from their dragon eyes.",
+  "trarcane.skill.necro_lord.description": "A forbidden necromantic Unique Skill that grants dominion over death, soul-binding artifacts, and partial transcendence beyond mortality.",
+  "trarcane.skill.mega_disintegration.description": "A catastrophic ability able to unleashes multiple simultaneous Disintegration fields across a wide area. It is an amplified mass-cast version of Disintegration."
+
+
+}

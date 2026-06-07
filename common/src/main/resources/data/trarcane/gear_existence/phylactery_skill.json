@@ -1,0 +1,9 @@
+{
+  "type": "trarcane:phylactery",
+  "engravings": {
+    "tensura:energy_steal": 1
+  },
+  "epGain": 0.03,
+  "maxEP": 1000000,
+  "minEP": 100
+}

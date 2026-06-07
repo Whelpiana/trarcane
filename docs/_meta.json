@@ -1,0 +1,18 @@
+{
+  "about_race": {
+    "name": "\uD83D\uDC8E About Races",
+    "icon": null
+  },
+  "about_extra": {
+    "name": "✨ About Extra Skills",
+    "icon": null
+  },
+  "about_unique": {
+    "name": "\uD83D\uDD2E About Unique Skills",
+    "icon": null
+  },
+  "about_ultimate": {
+    "name": "⚜\uFE0F About Ultimate Skills",
+    "icon": null
+  }
+}
