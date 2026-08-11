@@ -18,6 +18,7 @@ public class TrArcaneUniqueSkills {
     public static final RegistrySupplier<InvestigatorSkill> INVESTIGATOR = register("investigator", InvestigatorSkill::new);
     public static final RegistrySupplier<DisintegrationSkill> DISINTEGRATION = register("disintegration", DisintegrationSkill::new);
     public static final RegistrySupplier<HolySkill> HOLY = register("holy", HolySkill::new);
+    public static final RegistrySupplier<ElationSkill> ELEATION = register("elation", ElationSkill::new);
 
     private static <E extends ManasSkill> RegistrySupplier<E> register(String name, Supplier<E> supplier) {
         return SkillAPI.getSkillRegistry().register(ResourceLocation.fromNamespaceAndPath(MOD_ID, name), supplier);

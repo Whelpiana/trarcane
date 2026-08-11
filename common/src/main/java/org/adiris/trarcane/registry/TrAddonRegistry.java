@@ -22,5 +22,7 @@ public class TrAddonRegistry {
         TrArcaneExtraSkills.init();
         TrArcaneUniqueSkills.init();
         TrArcaneUltimateSkills.init();
+
+        TrArcaneConfigs.addToConfig();
     }
 }

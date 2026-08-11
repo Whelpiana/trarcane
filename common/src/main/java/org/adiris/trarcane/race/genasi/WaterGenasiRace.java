@@ -4,8 +4,11 @@ import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
+import io.github.manasmods.tensura.ability.magic.Element;
+import io.github.manasmods.tensura.ability.magic.spiritual.SpiritualMagic;
 import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.race.template.EvolutionRequirement;
+import io.github.manasmods.tensura.storage.TensuraStorages;
 import net.minecraft.world.entity.LivingEntity;
 import org.adiris.trarcane.config.race.GenasiConfig;
 import org.adiris.trarcane.registry.race.TrArcaneRaces;
@@ -44,6 +47,22 @@ public class WaterGenasiRace extends GenasiRace {
                 ),
                 100.0F
         );
+    }
+
+    @Override
+    public void onRaceSet(ManasRaceInstance instance, LivingEntity living) {
+        super.onRaceSet(instance, living);
+
+        var spirit = TensuraStorages.getSpiritFrom(living);
+
+        SpiritualMagic.SpiritLevel current = spirit.getSpiritLevel(Element.WATER);
+
+        if (current == null ||
+                current.getId() < SpiritualMagic.SpiritLevel.LESSER.getId()) {
+
+            spirit.setSpiritLevel(Element.WATER, SpiritualMagic.SpiritLevel.LESSER);
+            spirit.markDirty();
+        }
     }
 
     @Override

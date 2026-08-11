@@ -287,7 +287,7 @@ public class HolySkill extends Skill {
         entity.setSize(3.0F);
         entity.setHeight(50.0F);
         entity.setLife(310);
-        entity.setPos(new Vec3(pos.getX(), pos.getY(), pos.getZ()));
+        entity.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
 
         level.addFreshEntity(entity);
         instance.getOrCreateTag().putUUID("DisintegrationUUID", entity.getUUID());
