@@ -16,9 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class MeasureSkill extends Skill {
 
-    public MeasureSkill() {
-        super(SkillType.EXTRA);
-    }
+    public MeasureSkill() {super(SkillType.EXTRA);}
 
     @Override
     public boolean checkAcquiringRequirement(Player player, double newEP) {
