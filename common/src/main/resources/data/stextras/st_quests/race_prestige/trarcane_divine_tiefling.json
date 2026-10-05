@@ -1,0 +1,40 @@
+{
+  "lore_message": {
+    "title": "",
+    "subtitle": "",
+    "chat": "§r\n§8§lRace Prestige\n§fMaster the sacred flames and unyielding strength of your being. Become a being of overwhelming power.\n§r"
+  },
+  "start_message": {
+    "title": "",
+    "subtitle": "",
+    "chat": "§r\n§5§lRace Prestige\n§4You have begun your race prestige for %race%\n§r"
+  },
+  "completed_message": {
+    "title": "",
+    "subtitle": "",
+    "chat": "§r\n§5§lRace Prestige\n§4You have completed your race prestige tasks!\n§r"
+  },
+  "soul_grade": 4,
+  "quests": [
+    {
+      "name": "Master Flame Domination",
+      "creator": "master",
+      "type": "tensura:flame_domination"
+    },
+    {
+      "name": "Master Flame Manipulation",
+      "creator": "master",
+      "type": "tensura:flame_manipulation"
+    },
+    {
+      "name": "Master Steel Strength",
+      "creator": "master",
+      "type": "tensura:steel_strength"
+    },
+    {
+      "name": "Reach 3000000 EP",
+      "creator": "ep_reach",
+      "amount": 3000000
+    }
+  ]
+}

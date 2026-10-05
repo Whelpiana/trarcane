@@ -14,5 +14,13 @@
   "about_ultimate": {
     "name": "⚜\uFE0F About Ultimate Skills",
     "icon": null
+  },
+  "about_items": {
+    "name": "📜 About Items",
+    "icon": null
+  },
+  "update_notes": {
+    "name": "📜 Update Notes",
+    "icon": null
   }
 }

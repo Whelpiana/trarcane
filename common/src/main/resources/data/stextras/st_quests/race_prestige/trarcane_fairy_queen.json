@@ -1,0 +1,46 @@
+{
+  "lore_message": {
+    "title": "",
+    "subtitle": "",
+    "chat": "§r\n§8§lRace Prestige\n§5A fairy, attuned to the natural forces of the world. Harness the powers of the world to transcend your humble origins.\n§r"
+  },
+  "start_message": {
+    "title": "",
+    "subtitle": "",
+    "chat": "§r\n§5§lRace Prestige\n§4You have begun your race prestige for %race%\n§r"
+  },
+  "completed_message": {
+    "title": "",
+    "subtitle": "",
+    "chat": "§r\n§5§lRace Prestige\n§4You have completed your race prestige tasks!\n§r"
+  },
+  "soul_grade": 4,
+  "quests": [
+    {
+      "name": "Master 5 Aspectual Magics",
+      "creator": "master_type_magic",
+      "type": "tensura:aspectual",
+      "amount": 5
+    },
+    {
+      "name": "Master Earth Manipulation",
+      "creator": "master",
+      "type": "tensura:earth_manipulation"
+    },
+    {
+      "name": "Master Earth Domination",
+      "creator": "master",
+      "type": "tensura:earth_domination"
+    },
+    {
+      "name": "Master Wind Manipulation",
+      "creator": "master",
+      "type": "tensura:wind_manipulation"
+    },
+    {
+      "name": "Master Wind Domination",
+      "creator": "master",
+      "type": "tensura:wind_domination"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "lore_message": {
+    "title": "",
+    "subtitle": "",
+    "chat": "§r\n§8§lRace Prestige\n§5A being of immense potential, sharpening both body and mind. Surpass your limits and awaken your true strength.\n§r"
+  },
+  "start_message": {
+    "title": "",
+    "subtitle": "",
+    "chat": "§r\n§5§lRace Prestige\n§4You have begun your race prestige for %race%\n§r"
+  },
+  "completed_message": {
+    "title": "",
+    "subtitle": "",
+    "chat": "§r\n§5§lRace Prestige\n§4You have completed your race prestige tasks!\n§r"
+  },
+  "soul_grade": 4,
+  "quests": [
+    {
+      "name": "Master Thought Acceleration",
+      "creator": "master",
+      "type": "tensura:thought_acceleration"
+    },
+    {
+      "name": "Master Steel Strength",
+      "creator": "master",
+      "type": "tensura:steel_strength"
+    },
+    {
+      "name": "Master Strengthen Body",
+      "creator": "master",
+      "type": "tensura:strengthen_body"
+    },
+    {
+      "name": "Reach 3000000 EP",
+      "creator": "ep_reach",
+      "amount": 3000000
+    }
+  ]
+}

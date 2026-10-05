@@ -13,6 +13,7 @@ public class TrAddonRegistry {
     public static void init() {
         TrArcaneHandlers.init();
         ModItems.registerModItems();
+        ModCreativeTabs.registerModCreativeTabs();
 
     }
 

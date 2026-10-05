@@ -62,7 +62,8 @@
   "trarcane.skill.investigator.description": "Allows the user to read the surface thoughts of others, and provides excellent information analysis and processing.",
   "trarcane.skill.milim_eye.description": "It greatly enhances the user's eyesight and allows them to see through anything; nothing can hide from their dragon eyes.",
   "trarcane.skill.necro_lord.description": "A forbidden necromantic Unique Skill that grants dominion over death, soul-binding artifacts, and partial transcendence beyond mortality.",
-  "trarcane.skill.mega_disintegration.description": "A catastrophic ability able to unleashes multiple simultaneous Disintegration fields across a wide area. It is an amplified mass-cast version of Disintegration."
+  "trarcane.skill.mega_disintegration.description": "A catastrophic ability able to unleashes multiple simultaneous Disintegration fields across a wide area. It is an amplified mass-cast version of Disintegration.",
 
+  "itemGroup.trarcane": "Tensura: Arcane"
 
 }

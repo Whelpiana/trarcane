@@ -1,0 +1,22 @@
+{
+  "type": "tensura:smithing_bench",
+  "input1": {
+    "item": "tensura:pure_magisteel_ingot"
+  },
+  "input2": {
+    "item": "tensura:magic_stone"
+  },
+  "input3": {
+    "item": "tensura:high_quality_magic_crystal"
+  },
+  "inputAmount1": 4,
+  "inputAmount2": 4,
+  "inputAmount3": 1,
+  "output": {
+    "count": 1,
+    "id": "trarcane:eclipse_ingot"
+  },
+  "schematics": [
+    "tensura:pure_magisteel_gear_schematic"
+  ]
+}

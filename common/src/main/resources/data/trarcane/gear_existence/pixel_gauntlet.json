@@ -1,0 +1,17 @@
+{
+  "type": "trarcane:gauntlet",
+  "epGain": 0.035,
+  "minEP": 10000,
+  "uniqueEvolutions": [
+    {
+      "EP": 750000,
+      "attributes": [
+        {
+          "type": "minecraft:generic.attack_damage",
+          "amount": 62.0,
+          "slot": "mainhand"
+        }
+      ]
+    }
+  ]
+}
