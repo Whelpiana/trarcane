@@ -21,9 +21,17 @@ public class ModCreativeTabs {
                     .icon(() -> new ItemStack(ModItems.ECLIPSE_INGOT.get()))
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.LICH_BOOK.get());
+                        output.accept(ModItems.ELEMENTAL_BUNDLE.get());
+                        output.accept(ModItems.LIGHT_DARK_BUNDLE.get());
+                        output.accept(ModItems.NATURE_BUNDLE.get());
+                        output.accept(ModItems.SPATIAL_BUNDLE.get());
                         output.accept(ModItems.PHYLACTERY.get());
+                        output.accept(ModItems.OTHERWORLDER_RELIC.get());
                         output.accept(ModItems.GAUNTLET.get());
                         output.accept(ModItems.ECLIPSE_INGOT.get());
+                        output.accept(ModItems.CALAMITY_STAFF.get());
+                        output.accept(ModItems.THE_COIN.get());
+                        output.accept(ModItems.LOST_RELIC_OF_TIME.get());
                     })
                     .build());
 

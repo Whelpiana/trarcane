@@ -8,10 +8,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
-import org.adiris.trarcane.item.custom.EclipseIngotItem;
-import org.adiris.trarcane.item.custom.GauntletItem;
-import org.adiris.trarcane.item.custom.LichBookItem;
-import org.adiris.trarcane.item.custom.PhylacteryItem;
+import org.adiris.trarcane.item.custom.*;
 
 import static org.adiris.trarcane.Trarcane.MOD_ID;
 
@@ -25,9 +22,26 @@ public class ModItems {
             ITEMS.register("lich_book",
                     () -> new LichBookItem(new Item.Properties().stacksTo(1)));
 
+    public static final RegistrySupplier<Item> ELEMENTAL_BUNDLE = ITEMS.register("elemental_bundle",
+            () -> new ElementalBundle(new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> LIGHT_DARK_BUNDLE = ITEMS.register("light_dark_bundle",
+            () -> new Light_DarkBundle(new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> NATURE_BUNDLE = ITEMS.register("nature_bundle",
+            () -> new NatureBundle(new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> SPATIAL_BUNDLE = ITEMS.register("spatial_bundle",
+            () -> new SpatialBundle(new Item.Properties().stacksTo(1)));
+
     public static final RegistrySupplier<Item> PHYLACTERY =
             ITEMS.register("phylactery",
                     () -> new PhylacteryItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistrySupplier<Item> OTHERWORLDER_RELIC =
+            ITEMS.register("otherworlder_relic",
+                    () -> new OtherworlderRelicItem(new Item.Properties()));
+
+    public static final RegistrySupplier<Item> LOST_RELIC_OF_TIME =
+            ITEMS.register("lostrelicoftime",
+                    () -> new LostRelicOfTimeItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistrySupplier<Item> GAUNTLET =
             ITEMS.register("gauntlet",
@@ -36,6 +50,15 @@ public class ModItems {
 
     public static final RegistrySupplier<Item> ECLIPSE_INGOT = ITEMS.register("eclipse_ingot",
             () -> new EclipseIngotItem(new Item.Properties()));
+
+    public static final RegistrySupplier<CoinItem> THE_COIN = ITEMS.register("the_coin",
+            () -> new CoinItem(new Item.Properties()));
+
+    public static final RegistrySupplier<CalamityStaffItem> CALAMITY_STAFF =
+            ITEMS.register("calamity_staff", CalamityStaffItem::new);
+
+
+
 
     public static void registerModItems() {
         ITEMS.register();

@@ -1,6 +1,13 @@
-{
+﻿{
   "lich_book.mdx": "Lich Book",
   "phylactery.mdx": "Phylactery",
   "eclipse_ingot.mdx": "Eclipse Ingot",
-  "gauntlet.mdx": "Eclipse Gauntlet"
+  "gauntlet.mdx": "Eclipse Gauntlet",
+  "the_coin.mdx": "The Coin",
+  "elemental_bundle.mdx": "Elemental Bundle",
+  "holy_dark_bundle.mdx": "Holy Dark Bundle",
+  "lost_relic_of_time.mdx": "Lost Relic of Time",
+  "nature_bundle.mdx": "Nature Bundle",
+  "otherworlder_relic.mdx": "Otherworlder Relic",
+  "spatial_bundle.mdx": "Spatial Bundle"
 }

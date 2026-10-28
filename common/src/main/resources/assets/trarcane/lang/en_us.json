@@ -29,6 +29,9 @@
 
   "trarcane.skill.holy": "Holy",
 
+  "trarcane.skill.excavation": "Excavation",
+  "trarcane.skill.mode.excavate": "Excavate",
+
   "trarcane.race.infernal_tiefling": "Infernal Tiefling",
   "trarcane.race.abyssal_tiefling": "Abyssal Tiefling",
   "trarcane.race.chthonic_tiefling": "Chthonic Tiefling",
@@ -63,7 +66,17 @@
   "trarcane.skill.milim_eye.description": "It greatly enhances the user's eyesight and allows them to see through anything; nothing can hide from their dragon eyes.",
   "trarcane.skill.necro_lord.description": "A forbidden necromantic Unique Skill that grants dominion over death, soul-binding artifacts, and partial transcendence beyond mortality.",
   "trarcane.skill.mega_disintegration.description": "A catastrophic ability able to unleashes multiple simultaneous Disintegration fields across a wide area. It is an amplified mass-cast version of Disintegration.",
+  "trarcane.skill.excavation.description": "Allows the user to dig up increasingly rare rewards.",
 
-  "itemGroup.trarcane": "Tensura: Arcane"
-
+  "itemGroup.trarcane": "Tensura: Arcane",
+  "item.trarcane.calamity_staff": "Calamity Staff",
+  "item.trarcane.otherworlder_relic": "Otherworlder Relic",
+  "item.trarcane.lostrelicoftime": "Lost Relic of Time",
+  "item.trarcane.the_coin": "The Coin"
+  ,"item.trarcane.elemental_bundle": "Elemental Bundle"
+  ,"item.trarcane.light_dark_bundle": "Light & Dark Bundle"
+  ,"item.trarcane.nature_bundle": "Nature Bundle"
+  ,"item.trarcane.spatial_bundle": "Spatial Bundle"
+  ,"item.trarcane.spiritual_magic_bundle.use": "Right-click to learn these spiritual magics"
+  ,"item.trarcane.spiritual_magic_bundle.unavailable": "The spiritual magics in this bundle are unavailable."
 }

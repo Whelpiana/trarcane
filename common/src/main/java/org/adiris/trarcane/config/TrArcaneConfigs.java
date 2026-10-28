@@ -6,6 +6,7 @@ import io.github.manasmods.tensura.config.ability.skill.UniqueSkillConfig;
 import org.adiris.trarcane.config.race.FairyConfig;
 import org.adiris.trarcane.config.race.GenasiConfig;
 import org.adiris.trarcane.config.race.TieflingConfig;
+import org.adiris.trarcane.config.skill.ExcavationRewardPoolConfig;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -22,13 +23,15 @@ public class TrArcaneConfigs {
     public static final List<String> UNIQUE_SKILLS = List.of(
             "trarcane:investigator",
             "trarcane:necro_lord",
-            "trarcane:holy"
+            "trarcane:holy",
+            "trarcane:excavation"
     );
 
     public static void init() {
         ConfigRegistry.registerConfig(new TieflingConfig());
         ConfigRegistry.registerConfig(new GenasiConfig());
         ConfigRegistry.registerConfig(new FairyConfig());
+        ConfigRegistry.registerConfig(new ExcavationRewardPoolConfig());
     }
 
     public static void addToConfig() {
