@@ -1,5 +1,6 @@
 package org.adiris.trarcane.ability.skill.unique;
 
+import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
@@ -27,16 +28,14 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.adiris.trarcane.config.skill.TrArcaneUniqueSkillConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
 public class HolySkill extends Skill {
-
-    private static final int HOLD_TIME = 215;
-
-    private static final double TICK_MAGICULE_COST = 200000.0 / HOLD_TIME;
-    private static final float HOLY_BLESSING = 50.0F;
+    public static final TrArcaneUniqueSkillConfig.Holy CONFIG =
+            ((TrArcaneUniqueSkillConfig) ConfigRegistry.getConfig(TrArcaneUniqueSkillConfig.class)).Holy;
 
     public HolySkill() {
         super(SkillType.UNIQUE);
@@ -113,7 +112,7 @@ public class HolySkill extends Skill {
     public boolean onDamageEntity(ManasSkillInstance instance, LivingEntity owner, LivingEntity target, DamageSource source, Changeable<Float> amount) {
 
         if (source.is(TensuraDamageTypes.DISINTEGRATION)) {
-            amount.set(300.0F);
+            amount.set(CONFIG.disintegrationDamage);
             return true;
         }
 
@@ -126,7 +125,7 @@ public class HolySkill extends Skill {
                 target.invulnerableTime = 0;
 
 
-                target.hurt(this.createSource(instance, owner, TensuraDamageTypes.HOLY_DAMAGE, 1), HOLY_BLESSING);
+                        target.hurt(this.createSource(instance, owner, TensuraDamageTypes.HOLY_DAMAGE, 1), CONFIG.holyBlessing);
 
 
                 instance.getOrCreateTag().putBoolean("check", false);
@@ -175,15 +174,15 @@ public class HolySkill extends Skill {
 
     @Override
     public boolean onHeld(ManasSkillInstance instance, LivingEntity user, int heldTicks, int mode) {
-
+        double tickMagiculeCost = CONFIG.magiculeCost / CONFIG.holdTime;
         IExistence existence = TensuraStorages.getExistenceFrom(user);
 
 
-        if (existence == null || existence.getMagicule() < TICK_MAGICULE_COST) {
+        if (existence == null || existence.getMagicule() < tickMagiculeCost) {
             cancelDisintegration(instance, user, heldTicks);
             return false;
         } else {
-            existence.setMagicule(existence.getMagicule() - TICK_MAGICULE_COST);
+            existence.setMagicule(existence.getMagicule() - tickMagiculeCost);
             existence.markDirty();
         }
 
@@ -206,7 +205,7 @@ public class HolySkill extends Skill {
             }
         }
 
-        if (heldTicks >= HOLD_TIME) {
+        if (heldTicks >= CONFIG.holdTime) {
             if (user instanceof Player player && !player.isCreative()) {
                 setCoolDown(instance, user, true);
             }
@@ -230,7 +229,7 @@ public class HolySkill extends Skill {
 
                 if (id != null && level instanceof ServerLevel serverLevel) {
                     if (serverLevel.getEntity(id) instanceof DisintegrationEntity entity) {
-                        boolean completed = heldTicks >= HOLD_TIME;
+                        boolean completed = heldTicks >= CONFIG.holdTime;
 
                         if (!completed) {
                             entity.discard();
@@ -251,7 +250,7 @@ public class HolySkill extends Skill {
             }
         }
 
-        setCoolDown(instance, user, heldTicks >= HOLD_TIME);
+        setCoolDown(instance, user, heldTicks >= CONFIG.holdTime);
         instance.getOrCreateTag().remove("DisintegrationUUID");
         instance.getOrCreateTag().remove("HasTarget");
     }
@@ -294,6 +293,6 @@ public class HolySkill extends Skill {
     }
 
     private void setCoolDown(ManasSkillInstance instance, LivingEntity user, boolean success) {
-        instance.setCoolDown(900, 0);
+        instance.setCoolDown(CONFIG.cooldown, 0);
     }
 }

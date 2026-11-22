@@ -19,6 +19,10 @@
 
   "trarcane.skill.measure": "Measure",
 
+  "trarcane.skill.clairvoyance": "Clairvoyance",
+  "trarcane.skill.mode.clairvoyance": "Clairvoyance",
+  "trarcane.skill.clairvoyance.description": "Reveals the location of a player through an Empty Element Core renamed to their name.",
+
   "trarcane.skill.rest": "Rest",
   "trarcane.skill.mode.default": "Use",
 

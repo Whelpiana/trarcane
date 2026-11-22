@@ -1,5 +1,6 @@
 package org.adiris.trarcane.ability.skill.extra;
 
+import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import net.minecraft.ChatFormatting;
@@ -12,15 +13,18 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import org.adiris.trarcane.config.skill.TrArcaneExtraSkillConfig;
 import org.jetbrains.annotations.Nullable;
 
 public class MeasureSkill extends Skill {
+    public static final TrArcaneExtraSkillConfig.Measure CONFIG =
+            ((TrArcaneExtraSkillConfig) ConfigRegistry.getConfig(TrArcaneExtraSkillConfig.class)).Measure;
 
     public MeasureSkill() {super(SkillType.EXTRA);}
 
     @Override
     public boolean checkAcquiringRequirement(Player player, double newEP) {
-        return newEP >= 50000;
+        return newEP >= CONFIG.epAcquirement;
     }
 
 

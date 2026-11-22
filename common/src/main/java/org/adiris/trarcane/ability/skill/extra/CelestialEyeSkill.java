@@ -1,15 +1,18 @@
 package org.adiris.trarcane.ability.skill.extra;
 
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
+import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import io.github.manasmods.tensura.util.AttributeHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import org.jetbrains.annotations.Nullable;
-
+import org.adiris.trarcane.config.skill.TrArcaneExtraSkillConfig;
 
 public class CelestialEyeSkill extends Skill {
+    public static final TrArcaneExtraSkillConfig.CelestialEye CONFIG =
+            ((TrArcaneExtraSkillConfig) ConfigRegistry.getConfig(TrArcaneExtraSkillConfig.class)).CelestialEye;
 
     public CelestialEyeSkill() {
         super(Skill.SkillType.EXTRA);
@@ -47,11 +50,11 @@ public class CelestialEyeSkill extends Skill {
     }
 
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {
-        AttributeHelper.addPresenceSense(entity, 5);
+        AttributeHelper.addPresenceSense(entity, CONFIG.presenceSense);
     }
 
     public void onToggleOff(ManasSkillInstance instance, LivingEntity entity) {
-        AttributeHelper.removePresenceSense(entity, 5);
+        AttributeHelper.removePresenceSense(entity, CONFIG.presenceSense);
     }
 
 

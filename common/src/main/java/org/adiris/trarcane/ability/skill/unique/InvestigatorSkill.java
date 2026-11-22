@@ -1,5 +1,6 @@
 package org.adiris.trarcane.ability.skill.unique;
 
+import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
 import io.github.manasmods.manascore.skill.impl.SkillStorage;
@@ -26,22 +27,18 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import org.adiris.trarcane.config.skill.TrArcaneUniqueSkillConfig;
 import org.jetbrains.annotations.Nullable;
 
 public class InvestigatorSkill extends Skill {
+    public static final TrArcaneUniqueSkillConfig.Investigator CONFIG =
+            ((TrArcaneUniqueSkillConfig) ConfigRegistry.getConfig(TrArcaneUniqueSkillConfig.class)).Investigator;
 
     private static final ResourceLocation INVESTIGATOR_ACCELERATION =
             ResourceLocation.fromNamespaceAndPath(
                     "trarcane",
                     "investigator_acceleration"
             );
-
-    private static final double CHANT_SPEED = 2.0;
-    private static final double MOVEMENT_SPEED = 0.01;
-    private static final double MOVEMENT_SPEED_MASTERED = 0.02;
-    private static final double ATTACK_SPEED = 0.2;
-    private static final double ATTACK_SPEED_MASTERED = 0.4;
-    private static final int DODGE_INVULNERABILITY = 1;
 
     public InvestigatorSkill() {
         super(SkillType.UNIQUE);
@@ -104,7 +101,7 @@ public class InvestigatorSkill extends Skill {
     @Override
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {
 
-        AttributeHelper.addPresenceSense(entity, 4.0);
+        AttributeHelper.addPresenceSense(entity, CONFIG.presenceSense);
 
         AttributeInstance movement = entity.getAttribute(Attributes.MOVEMENT_SPEED);
         if (movement != null && !movement.hasModifier(INVESTIGATOR_ACCELERATION)) {
@@ -112,8 +109,8 @@ public class InvestigatorSkill extends Skill {
                     new AttributeModifier(
                             INVESTIGATOR_ACCELERATION,
                             instance.isMastered(entity)
-                                    ? MOVEMENT_SPEED_MASTERED
-                                    : MOVEMENT_SPEED,
+                                    ? CONFIG.movementSpeedMastered
+                                    : CONFIG.movementSpeed,
                             AttributeModifier.Operation.ADD_VALUE
                     )
             );
@@ -125,8 +122,8 @@ public class InvestigatorSkill extends Skill {
                     new AttributeModifier(
                             INVESTIGATOR_ACCELERATION,
                             instance.isMastered(entity)
-                                    ? ATTACK_SPEED_MASTERED
-                                    : ATTACK_SPEED,
+                                    ? CONFIG.attackSpeedMastered
+                                    : CONFIG.attackSpeed,
                             AttributeModifier.Operation.ADD_VALUE
                     )
             );
@@ -137,7 +134,7 @@ public class InvestigatorSkill extends Skill {
             chant.addOrReplacePermanentModifier(
                     new AttributeModifier(
                             INVESTIGATOR_ACCELERATION,
-                            CHANT_SPEED,
+                            CONFIG.chantSpeed,
                             AttributeModifier.Operation.ADD_VALUE
                     )
             );
@@ -149,7 +146,7 @@ public class InvestigatorSkill extends Skill {
                 dodge.addOrReplacePermanentModifier(
                         new AttributeModifier(
                                 INVESTIGATOR_ACCELERATION,
-                                DODGE_INVULNERABILITY,
+                                CONFIG.dodgeInvulnerability,
                                 AttributeModifier.Operation.ADD_VALUE
                         )
                 );
@@ -161,7 +158,7 @@ public class InvestigatorSkill extends Skill {
     @Override
     public void onToggleOff(ManasSkillInstance instance, LivingEntity entity) {
 
-        AttributeHelper.removePresenceSense(entity, 6.0);
+        AttributeHelper.removePresenceSense(entity, CONFIG.presenceSense);
 
         for (var attr : new AttributeInstance[]{
                 entity.getAttribute(Attributes.MOVEMENT_SPEED),

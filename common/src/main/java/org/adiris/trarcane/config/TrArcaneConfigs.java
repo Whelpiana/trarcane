@@ -6,7 +6,10 @@ import io.github.manasmods.tensura.config.ability.skill.UniqueSkillConfig;
 import org.adiris.trarcane.config.race.FairyConfig;
 import org.adiris.trarcane.config.race.GenasiConfig;
 import org.adiris.trarcane.config.race.TieflingConfig;
+import org.adiris.trarcane.config.item.TrArcaneItemConfig;
 import org.adiris.trarcane.config.skill.ExcavationRewardPoolConfig;
+import org.adiris.trarcane.config.skill.TrArcaneExtraSkillConfig;
+import org.adiris.trarcane.config.skill.TrArcaneUniqueSkillConfig;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -32,6 +35,9 @@ public class TrArcaneConfigs {
         ConfigRegistry.registerConfig(new GenasiConfig());
         ConfigRegistry.registerConfig(new FairyConfig());
         ConfigRegistry.registerConfig(new ExcavationRewardPoolConfig());
+        ConfigRegistry.registerConfig(new TrArcaneExtraSkillConfig());
+        ConfigRegistry.registerConfig(new TrArcaneUniqueSkillConfig());
+        ConfigRegistry.registerConfig(new TrArcaneItemConfig());
     }
 
     public static void addToConfig() {

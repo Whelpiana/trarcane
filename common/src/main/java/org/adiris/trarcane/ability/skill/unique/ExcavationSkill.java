@@ -24,12 +24,16 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.adiris.trarcane.config.skill.ExcavationRewardPoolConfig;
+import org.adiris.trarcane.config.skill.TrArcaneUniqueSkillConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ExcavationSkill extends Skill {
+    public static final TrArcaneUniqueSkillConfig.Excavation CONFIG =
+            ((TrArcaneUniqueSkillConfig) ConfigRegistry.getConfig(TrArcaneUniqueSkillConfig.class)).Excavation;
+
     private static final String TIER_TAG = "ExcavationTier";
     private static final String LEGENDARY_EXCAVATIONS_TAG = "LegendaryExcavations";
 
@@ -131,7 +135,7 @@ public class ExcavationSkill extends Skill {
         if (tier == 3) instance.getOrCreateTag().putInt(LEGENDARY_EXCAVATIONS_TAG, instance.getOrCreateTag().getInt(LEGENDARY_EXCAVATIONS_TAG) + 1);
         instance.getOrCreateTag().putInt(TIER_TAG, tier == 3 ? 0 : tier + 1);
         instance.markDirty();
-        instance.setCoolDown(300, 1);
+        instance.setCoolDown(CONFIG.cooldown, 1);
     }
 
     private Reward choose(List<String> entries) {

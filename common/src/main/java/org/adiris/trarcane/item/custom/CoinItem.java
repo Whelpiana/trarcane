@@ -3,6 +3,7 @@ package org.adiris.trarcane.item.custom;
 import io.github.manasmods.tensura.storage.TensuraStorages;
 import io.github.manasmods.tensura.storage.ep.IExistence;
 import io.github.manasmods.tensura.util.EnergyHelper;
+import io.github.manasmods.manascore.config.ConfigRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -11,12 +12,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.adiris.trarcane.config.item.TrArcaneItemConfig;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.text.NumberFormat;
 
 public class CoinItem extends Item {
-    private static final double MAGICULES_RESTORED = 250_000;
+    private static final TrArcaneItemConfig.Coin CONFIG =
+            ((TrArcaneItemConfig) ConfigRegistry.getConfig(TrArcaneItemConfig.class)).Coin;
 
     public CoinItem(Properties properties) {
         super(properties);
@@ -26,7 +30,8 @@ public class CoinItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, net.minecraft.world.item.TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
-        tooltip.add(Component.literal("Right-click to restore 250,000 magicules.")
+        String amount = NumberFormat.getIntegerInstance().format(CONFIG.magiculesRestored);
+        tooltip.add(Component.literal("Right-click to restore " + amount + " magicules.")
                 .withStyle(ChatFormatting.GRAY));
     }
 
@@ -40,7 +45,7 @@ public class CoinItem extends Item {
             }
 
             double maximumMagicule = EnergyHelper.getMaxMagicule(player);
-            existence.setMagicule(Math.min(maximumMagicule, existence.getMagicule() + MAGICULES_RESTORED));
+            existence.setMagicule(Math.min(maximumMagicule, existence.getMagicule() + CONFIG.magiculesRestored));
             existence.markDirty();
             if (!player.getAbilities().instabuild) {
                 stack.shrink(1);

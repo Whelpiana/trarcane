@@ -1,6 +1,7 @@
 package org.adiris.trarcane.ability.skill.extra;
 
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
+import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import io.github.manasmods.tensura.registry.sound.TensuraSoundEvents;
 import io.github.manasmods.tensura.storage.TensuraStorages;
@@ -11,9 +12,11 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
+import org.adiris.trarcane.config.skill.TrArcaneExtraSkillConfig;
 
 public class RestSkill extends Skill {
-
+    public static final TrArcaneExtraSkillConfig.Rest CONFIG =
+            ((TrArcaneExtraSkillConfig) ConfigRegistry.getConfig(TrArcaneExtraSkillConfig.class)).Rest;
 
     public RestSkill() {
         super(SkillType.EXTRA);
@@ -29,14 +32,13 @@ public class RestSkill extends Skill {
 
     @Override
     public boolean checkAcquiringRequirement(Player player, double newEP) {
-        return newEP >= 200000;
+        return newEP >= CONFIG.epAcquirement;
     }
 
 
     @Override
     public void onPressed(ManasSkillInstance instance, LivingEntity entity, int keyNumber, int mode) {
-
-        instance.setCoolDown(600 * 3, mode);
+        instance.setCoolDown(CONFIG.cooldown, mode);
 
         IExistence existence = TensuraStorages.getExistenceFrom(entity);
 

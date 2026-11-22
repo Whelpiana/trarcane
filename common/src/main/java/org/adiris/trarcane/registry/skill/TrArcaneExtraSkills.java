@@ -5,6 +5,7 @@ import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
 import net.minecraft.resources.ResourceLocation;
 import org.adiris.trarcane.ability.skill.extra.CelestialEyeSkill;
+import org.adiris.trarcane.ability.skill.extra.ClairvoyanceSkill;
 import org.adiris.trarcane.ability.skill.extra.MeasureSkill;
 import org.adiris.trarcane.ability.skill.extra.RestSkill;
 import org.adiris.trarcane.ability.skill.extra.ReplenishSkill;
@@ -20,6 +21,7 @@ public class TrArcaneExtraSkills {
     public static final RegistrySupplier<ReplenishSkill> REPLENISH = register("replenish", ReplenishSkill::new);
     public static final RegistrySupplier<RestSkill> REST = register("rest", RestSkill::new);
     public static final RegistrySupplier<MeasureSkill> MEASURE = register("measure", MeasureSkill::new);
+    public static final RegistrySupplier<ClairvoyanceSkill> CLAIRVOYANCE = register("clairvoyance", ClairvoyanceSkill::new);
 
     private static <E extends ManasSkill> RegistrySupplier<E> register(String name, Supplier<E> supplier) {
         return SkillAPI.getSkillRegistry().register(ResourceLocation.fromNamespaceAndPath(MOD_ID, name), supplier);
